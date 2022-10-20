@@ -27,7 +27,7 @@ const registerController = async (req, res) => {
             res.status(201).json(user)
         }
         catch (err) {
-            res.status(400).json({err:err})
+            res.status(400).json({ err: err })
             console.log(err)
         }
     }
@@ -72,7 +72,7 @@ const loginController = async (req, res) => {
     }
 }
 
-const logoutController = (req,res) => {
+const logoutController = (req, res) => {
     res.send('Logout Controller')
 }
 
