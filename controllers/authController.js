@@ -47,7 +47,7 @@ const loginController = async (req, res) => {
 
     //find the user
     const user = await User.findOne({ username: username }).exec()
-    if (!user) return res.status(401).json({ 'message': "Email or Password is wrong" })
+    if (!user) return res.status(401).json({ 'message': "Username or Password is wrong" })
 
     try { 
         //check if the password is correct
@@ -73,7 +73,11 @@ const loginController = async (req, res) => {
 }
 
 const logoutController = (req, res) => {
+    const token = req.header['Authorization'] || req.header['authorization']
+    console.log(token)
+    //jwt.destroy(token)
     res.send('Logout Controller')
+
 }
 
 module.exports = {loginController,logoutController,registerController}
